@@ -8,7 +8,7 @@ RUN \
   apt-get update && \
   apt-get install -y apache2 && \
   apt-get install -y mysql-server && \
-  apt-get -y install php libapache2-mod-php php-mcrypt php-mysql php-cli php-curl php-gd php-zip php-soap php-xml php-intl php-mbstring && \
+  apt-get -y install php libapache2-mod-php php-mysql php-cli php-curl php-gd php-zip php-soap php-xml php-intl php-mbstring && \
   apt-get -y install postfix nano zip unzip curl git wget && \
   phpenmod mcrypt && \
   a2enmod rewrite && \
