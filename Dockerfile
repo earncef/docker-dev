@@ -23,7 +23,9 @@ RUN \
   mv phpunit.phar /usr/local/bin/phpunit && \
   cd / && \
   rm -rf /tmp/composer && \
-  rm -rf /var/lib/apt/lists/*
+  rm -rf /var/lib/apt/lists/* && \
+  mkdir /var/log/tmp && \
+  chmod 777 /var/log/tmp
 
 VOLUME /var/www/html
 
