@@ -31,6 +31,8 @@ VOLUME /var/www/html
 
 EXPOSE 80 3306
 
+RUN usermod -u 1000 www-data
+RUN usermod -G staff www-data
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 ENTRYPOINT service mysql start && service apache2 start && /bin/bash
