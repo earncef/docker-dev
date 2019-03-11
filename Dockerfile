@@ -2,12 +2,10 @@ FROM ubuntu:latest
 MAINTAINER Earncef Sequeira <earncefs@yahoo.com>
 
 ARG DEBIAN_FRONTEND=noninteractive
-ENV MYSQL_ROOT_PASSWORD root
 
 RUN \
   apt-get update && \
   apt-get install -y apache2 && \
-  apt-get install -y mysql-server && \
   apt-get -y install php libapache2-mod-php php-mysql php-cli php-curl php-gd php-zip php-soap php-xml php-intl php-mbstring && \
   apt-get -y install postfix nano zip unzip curl git wget && \
   phpenmod mcrypt && \
@@ -35,4 +33,5 @@ RUN usermod -u 1000 www-data
 RUN usermod -G staff www-data
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-ENTRYPOINT service mysql start && service apache2 start && /bin/bash
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
